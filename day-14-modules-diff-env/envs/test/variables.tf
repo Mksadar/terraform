@@ -1,0 +1,10 @@
+variable "vpc_cidr" {}
+variable "public_subnet_cidr" {}
+variable "public_subnet2_cidr" {}
+variable "availability_zone" {}
+variable "availability_zone2" {}
+variable "instance_type" {}
+variable "env" {}
+variable "ami_id" {}
+variable "region" {}
+variable "main" {}
