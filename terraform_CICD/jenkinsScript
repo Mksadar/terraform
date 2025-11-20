@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('clone') {
+            steps {
+             git branch: 'main', url: 'https://github.com/Mksadar/terraform.git'
+            }
+        }
+        stage('init') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+         stage('plan') {
+            steps {
+                dir('terraform_CICD')
+                {
+                sh 'terraform plan'
+                }
+            }
+        }
+        stage('apply') {
+            steps {
+                dir('terraform_CICD')
+                {
+                sh 'terraform apply -auto-approve'
+                }
+            }
+        }
+    }
+}
